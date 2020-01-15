@@ -1,0 +1,38 @@
+.cart-dropdown {
+  position: fixed;
+  right: 15px;
+  bottom: 25px;
+  z-index: 99;
+  .btn-cart {
+    border-radius: 50px;
+    height: 75px;
+    width: 75px;
+    .cart-icon {
+      position: relative;
+      .cart-qty {
+        font-size: 14px;
+        position: absolute;
+        top: -10px;
+        right: -3px;
+        border-radius: 50%;
+        height: 15px;
+        width: 15px;
+      }
+    }
+  }
+  .cart-menu {
+    display: none;
+    max-width: 400px;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+  }
+}
+
+.cart-dropdown.show {
+  .cart-menu {
+    display: block;
+  }
+}

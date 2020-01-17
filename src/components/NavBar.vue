@@ -42,20 +42,6 @@
 
 <script>
 export default {
-  methods: {
-    // 驗證有沒有登入，有登入就直接進 Dashboard，沒有就進 Login
-    signinCheck() {
-      const vm = this;
-      const api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
-      this.$http.post(api).then((response) => {
-        if (response.data.success) {
-          vm.$router.push('/admin/products');
-        } else {
-          vm.$router.push('/Login');
-        }
-      });
-    },
-  },
   computed: {
     pathCheck() {
       return this.$route.path;

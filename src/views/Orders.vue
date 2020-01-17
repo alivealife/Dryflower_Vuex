@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="vld-parent">
-      <loading :active.sync="isLoading"></loading>
     </div>
 
     <table class="table mt-5">
@@ -110,7 +109,6 @@ export default {
       pagination: {},
       // 儲存 Modal 的欄位內容
       tempOrder: {},
-      isLoading: false,
     };
   },
 
@@ -121,10 +119,10 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`;
       const vm = this;
       // 將讀取套件設為 true
-      vm.isLoading = true;
+      vm.$store.state.isLoading = true;
       this.$http.get(api).then((response) => {
         // 取得完資料後將讀取套件設為 false
-        vm.isLoading = false;
+        vm.$store.state.isLoading = false;
         // 將產品資料取出並儲存
         vm.orders = response.data.orders;
         // 取得分頁資料

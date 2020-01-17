@@ -4,9 +4,9 @@
     <!-- 右下角購物車 -->
     <div class="cart-dropdown">
       <form>
-        <button class="btn btn-secondary btn-cart" type="button" @click="openCart">
+        <button class="btn btn-secondary btn-cart" type="button" @click.prevent="getCart(1)">
           <i class="fas fa-shopping-cart fa-lg cart-icon">
-            <span class="bg-danger text-white cart-qty">{{cartQty}}</span>
+            <span class="bg-danger text-white cart-qty">{{cartQuantity}}</span>
           </i>
           <br />購物車
         </button>
@@ -19,14 +19,14 @@
             </thead>
             <tbody>
               <!-- item.id 具唯一性，所以 key 使用 item.id -->
-              <tr v-if="cartData.carts ==''">
+              <tr v-if="cartItem.carts ==''">
                 <td colspan="4" class="text-danger text-center h3 py-3">購物車是空的喔 :(</td>
               </tr>
-              <tr v-for="(item) in cartData.carts" :key="item.id" v-else>
+              <tr v-for="(item) in cartItem.carts" :key="item.id" v-else>
                 <td width="30px">
                   <!-- 移除購物車商品(要帶入商品 ID) -->
-                  <button class="btn btn-outline-danger" @click.prevent="removeCart(item.id)">
-                    <i class="fas fa-spinner fa-spin" v-if="item.id === loadingImg.loadingItem"></i>
+                  <button class="btn btn-outline-danger" @click.prevent="removeCartItem(item.id)">
+                    <i class="fas fa-spinner fa-spin" v-if="item.id === status.loadingItem"></i>
                     <i class="far fa-trash-alt" v-else></i>
                   </button>
                 </td>
@@ -43,20 +43,21 @@
               </tr>
               <tr>
                 <td colspan="3" class="text-right">總計</td>
-                <td colspan="1" class="text-right">{{ cartData.total | currency }}</td>
+                <td colspan="1" class="text-right">{{ cartItem.total | currency }}</td>
               </tr>
               <!-- 有折扣才會顯示折扣價 -->
-              <tr v-if="cartData.final_total !== cartData.total">
+              <tr v-if="cartItem.final_total !== cartItem.total">
                 <td colspan="3" class="text-right text-success">折扣價</td>
                 <td
                   colspan="1"
                   class="text-right text-success"
-                >{{ cartData.final_total | currency }}</td>
+                >{{ cartItem.final_total | currency }}</td>
               </tr>
             </tbody>
           </table>
           <button
             class="btn btn-outline-main btn-lg btn-block rounded-pill"
+            :disabled = "cartItem.carts ==''"
             @click.prevent="checkout"
           >結帳去</button>
         </div>
@@ -66,6 +67,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import Alert from './AlerMessage.vue';
 
 export default {
@@ -73,21 +75,19 @@ export default {
   components: {
     Alert,
   },
-  props: {
-    cartData: {},
-    loadingImg: {},
-  },
   methods: {
-    openCart() {
-      this.$emit('opencart');
+    ...mapActions('cartModules', ['toggleCart']),
+    // 取得購物車內容
+    getCart(open) {
+      this.$store.dispatch('cartModules/getCart', open);
     },
-    // 將要移除的 ID 丟回給父元件
-    removeCart(id) {
-      this.$emit('removecart', id);
+    // 刪除購物車內容
+    removeCartItem(id) {
+      this.$store.dispatch('cartModules/removeCartItem', id);
     },
     checkout() {
       const vm = this;
-      if (vm.cartData.carts === '') {
+      if (vm.cartItem.carts === '') {
         vm.$bus.$emit('message:push', '購物車是空的', 'danger');
       } else {
         vm.$router.push('/checkout');
@@ -95,13 +95,13 @@ export default {
     },
   },
   computed: {
-    // 避免一開始資料沒讀進來會出錯，所以當有資料時才計算
-    cartQty() {
-      if (this.cartData.carts) {
-        return this.cartData.carts.length;
-      }
-      return 0;
-    },
+    ...mapGetters('cartModules', ['cartQuantity', 'cartItem', 'status']),
+  },
+  created() {
+    this.getCart();
+  },
+  mounted() {
+    this.toggleCart();
   },
 };
 </script>

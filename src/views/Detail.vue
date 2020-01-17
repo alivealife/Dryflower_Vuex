@@ -54,24 +54,13 @@
       </div>
     </div>
     <Footer />
-    <ShoppingCart
-      :cart-data="cartItem"
-      :loading-img="status"
-      @opencart="getCart(1)"
-      @removecart="removeCartItem"
-    ></ShoppingCart>
-    <FavoriteList
-      :favorite-data="favorite"
-      :loading-img="status"
-      @openfavorite="openFavoriteList(1)"
-      @removefavorite="removeLove"
-      @favoriteToCart="addtoCart"
-    ></FavoriteList>
+    <ShoppingCart></ShoppingCart>
+    <FavoriteList></FavoriteList>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import NavBar from '../components/NavBar.vue';
 import Footer from '../components/Footer.vue';
 import ShoppingCart from '../components/ShoppingCart.vue';
@@ -90,22 +79,12 @@ export default {
     FavoriteList,
   },
   methods: {
-    ...mapActions('cartModules', ['toggleCart']),
-    ...mapActions('favoriteModules', ['getfavorite', 'toggleFavorite']),
     getProduct(id) {
       this.$store.dispatch('productsModules/getProduct', id);
     },
     // 加入購物車   讓 qty = 1，如果函式傳進來沒有帶入 qty 會預設 1
     addtoCart(id, qty = 1) {
       this.$store.dispatch('cartModules/addtoCart', { id, qty });
-    },
-    // 取得購物車內容
-    getCart(open) {
-      this.$store.dispatch('cartModules/getCart', open);
-    },
-    // 刪除購物車內容
-    removeCartItem(id) {
-      this.$store.dispatch('cartModules/removeCartItem', id);
     },
     // 加入最愛
     addLove(item) {
@@ -123,28 +102,17 @@ export default {
     removeLove(favoriteItem) {
       this.$store.dispatch('favoriteModules/removeLove', favoriteItem);
     },
-    // 開啟最愛列表
-    openFavoriteList(open) {
-      this.$store.dispatch('favoriteModules/openFavoriteList', open);
-    },
   },
   computed: {
     ...mapGetters('productsModules', ['product']),
-    ...mapGetters('cartModules', ['status', 'cartItem']),
-    ...mapGetters('favoriteModules', ['favorite', 'sliceIndex']),
+    ...mapGetters('cartModules', ['status']),
+    ...mapGetters('favoriteModules', ['favorite']),
   },
   created() {
     // 取得產品 ID
     // orderId 對應的是 index.js 設定的路由，要相同才能抓到
     this.productId = this.$route.params.productId;
     this.getProduct(this.productId);
-    this.getCart();
-    this.getfavorite();
-  },
-  mounted() {
-    // 點擊任意處關閉購物車視窗
-    this.toggleCart();
-    this.toggleFavorite();
   },
 };
 </script>

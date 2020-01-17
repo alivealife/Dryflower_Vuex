@@ -83,5 +83,11 @@ export default {
   getters: {
     status: state => state.status,
     cartItem: state => state.cartItem,
+    cartQuantity: (state) => {
+      if (!state.cartItem.carts) {
+        return 0;
+      }
+      return state.cartItem.carts.length;
+    },
   },
 };

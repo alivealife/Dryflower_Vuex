@@ -1,8 +1,6 @@
 <template>
   <div>
     <Navbar />
-    <!-- 錯誤訊息用標籤 -->
-    <Alert></Alert>
     <div class="container-fluid">
       <div class="row">
         <Sidebar></Sidebar>
@@ -19,14 +17,14 @@
 import Sidebar from './Sidebar.vue';
 import Navbar from './DashboardNavBar.vue';
 // 掛載錯誤訊息提示元件
-import Alert from './AlerMessage.vue';
+// import Alert from './AlerMessage.vue';
 
 export default {
   components: {
     Sidebar,
     Navbar,
     // 將元件放入
-    Alert,
+    // Alert,
   },
 };
 </script>

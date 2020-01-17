@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="vld-parent">
-      <loading :active.sync="isLoading"></loading>
-    </div>
     <div class="text-right mt-4">
       <!-- 建立新產品所以使用 true 代入 -->
       <button class="btn btn-main" @click="openModal(true)">建立新的產品</button>
@@ -255,7 +252,6 @@ export default {
       // 儲存 Modal 的欄位內容
       tempProduct: {},
       isNew: false,
-      isLoading: false,
       status: {
         fileUploading: false,
       },
@@ -269,10 +265,10 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`;
       const vm = this;
       // 將讀取套件設為 true
-      vm.isLoading = true;
+      vm.$store.state.isLoading = true;
       this.$http.get(api).then((response) => {
         // 取得完資料後將讀取套件設為 false
-        vm.isLoading = false;
+        vm.$store.state.isLoading = false;
         // 將產品資料取出並儲存
         vm.products = response.data.products;
         // 取得分頁資料

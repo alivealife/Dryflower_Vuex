@@ -4,7 +4,11 @@
     <!-- 右下角最愛列表 -->
     <div class="favorite-dropdown">
       <form>
-        <button class="btn btn-secondary btn-favorite" type="button" @click.prevent="openfavorite">
+        <button
+          class="btn btn-secondary btn-favorite"
+          type="button"
+          @click.prevent="openFavoriteList(1)"
+        >
           <i class="fas fa-heart fa-lg favorite-icon">
             <span class="bg-danger text-white favorite-qty">{{ favoriteQty }}</span>
           </i>
@@ -19,15 +23,15 @@
             </thead>
             <tbody>
               <!-- item.id 具唯一性，所以 key 使用 item.id -->
-              <tr v-if="favoriteData ==''">
+              <tr v-if="favorite ==''">
                 <td colspan="4" class="text-danger text-center h3 py-3">這裡沒有東西</td>
               </tr>
-              <tr v-for="(item) in favoriteData" :key="item.id">
+              <tr v-for="(item) in favorite" :key="item.id">
                 <td colspan="1" class="px-0">
                   <button
                     type="button"
                     class="btn text-danger"
-                    @click.prevent="removefavorite(item)"
+                    @click.prevent="removeLove(item)"
                   >
                     <i class="fas fa-heart fa-2x"></i>
                   </button>
@@ -47,7 +51,7 @@
                     class="btn btn-outline-third ml-auto"
                     @click="addtoCart(item.id)"
                   >
-                    <i class="fas fa-spinner fa-spin" v-if="item.id === loadingImg.loadingItem"></i>
+                    <i class="fas fa-spinner fa-spin" v-if="item.id === status.loadingItem"></i>
                     <i class="fas fa-shopping-cart" v-else></i>
                   </button>
                 </td>
@@ -61,6 +65,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
 import Alert from './AlerMessage.vue';
 
 export default {
@@ -68,31 +73,30 @@ export default {
   components: {
     Alert,
   },
-  props: {
-    favoriteData: {},
-    loadingImg: {},
-  },
   methods: {
-    openfavorite() {
-      this.$emit('openfavorite');
-    },
-    // 將要移除的 ID 丟回給父元件
-    removefavorite(item) {
-      this.$emit('removefavorite', item);
+    ...mapActions('favoriteModules', ['getfavorite', 'toggleFavorite']),
+    // 開啟最愛列表
+    openFavoriteList(open) {
+      this.$store.dispatch('favoriteModules/openFavoriteList', open);
     },
     // 從最愛清單加入購物車
-    addtoCart(id) {
-      this.$emit('favoriteToCart', id);
+    addtoCart(id, qty = 1) {
+      this.$store.dispatch('cartModules/addtoCart', { id, qty });
+    },
+    // 移除最愛
+    removeLove(favoriteItem) {
+      this.$store.dispatch('favoriteModules/removeLove', favoriteItem);
     },
   },
   computed: {
-    // 避免一開始資料沒讀進來會出錯，所以當有資料時才計算
-    favoriteQty() {
-      if (this.favoriteData) {
-        return this.favoriteData.length;
-      }
-      return 0;
-    },
+    ...mapGetters('favoriteModules', ['favorite', 'sliceIndex', 'favoriteQty']),
+    ...mapGetters('cartModules', ['status']),
+  },
+  created() {
+    this.getfavorite();
+  },
+  mounted() {
+    this.toggleFavorite();
   },
 };
 </script>

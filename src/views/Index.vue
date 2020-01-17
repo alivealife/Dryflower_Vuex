@@ -180,19 +180,8 @@
       </div>
     </div>
     <Footer />
-    <ShoppingCart
-      :cart-data="cartItem"
-      :loading-img="status"
-      @opencart="getCart(1)"
-      @removecart="removeCartItem"
-    ></ShoppingCart>
-    <FavoriteList
-      :favorite-data="favorite"
-      :loading-img="status"
-      @openfavorite="openFavoriteList(1)"
-      @removefavorite="removeLove"
-      @favoriteToCart="addtoCart"
-    ></FavoriteList>
+    <ShoppingCart></ShoppingCart>
+    <FavoriteList></FavoriteList>
   </div>
 </template>
 
@@ -221,23 +210,13 @@ export default {
   },
   methods: {
     ...mapActions('productsModules', ['getProducts']),
-    ...mapActions('cartModules', ['toggleCart']),
-    ...mapActions('favoriteModules', ['getfavorite', 'toggleFavorite']),
     getProductID(id) {
       const vm = this;
       vm.$router.push(`/detail/${id}`);
     },
-    // 取得購物車內容
-    getCart(open) {
-      this.$store.dispatch('cartModules/getCart', open);
-    },
     // 加入購物車
     addtoCart(id, qty = 1) {
       this.$store.dispatch('cartModules/addtoCart', { id, qty });
-    },
-    // 刪除購物車內容
-    removeCartItem(id) {
-      this.$store.dispatch('cartModules/removeCartItem', id);
     },
     // 跑馬燈用
     lang() {
@@ -259,14 +238,6 @@ export default {
       // 當我清除定時器之後，重新讓intervalId為null
       vm.intervalId = null;
     },
-    // 加入最愛
-    addLove(item) {
-      this.$store.dispatch('favoriteModules/addLove', item);
-    },
-    // 移除最愛
-    removeLove(favoriteItem) {
-      this.$store.dispatch('favoriteModules/removeLove', favoriteItem);
-    },
     // 更改愛心標誌判斷
     changeLove(item) {
       const vm = this;
@@ -275,9 +246,13 @@ export default {
         return result;
       });
     },
-    // 開啟最愛列表
-    openFavoriteList(open) {
-      this.$store.dispatch('favoriteModules/openFavoriteList', open);
+    // 加入最愛
+    addLove(item) {
+      this.$store.dispatch('favoriteModules/addLove', item);
+    },
+    // 移除最愛
+    removeLove(favoriteItem) {
+      this.$store.dispatch('favoriteModules/removeLove', favoriteItem);
     },
     sectionFadeIn() {
       $(window).scroll(() => {
@@ -308,18 +283,14 @@ export default {
   },
   computed: {
     ...mapGetters('productsModules', ['products', 'randomProducts']),
-    ...mapGetters('cartModules', ['status', 'cartItem']),
-    ...mapGetters('favoriteModules', ['favorite', 'sliceIndex']),
+    ...mapGetters('cartModules', ['status']),
+    ...mapGetters('favoriteModules', ['favorite']),
   },
   created() {
     this.getProducts();
-    this.getCart();
     this.lang();
-    this.getfavorite();
   },
   mounted() {
-    this.toggleCart();
-    this.toggleFavorite();
     this.sectionFadeIn();
   },
 };

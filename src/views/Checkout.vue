@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Alert></Alert>
     <header>
       <NavBar />
     </header>
@@ -76,7 +75,7 @@
             <!-- 跟 coupon_code 綁定 -->
             <input type="text" class="form-control" v-model="coupon_code" placeholder="請輸入優惠碼" />
             <div class="input-group-append">
-              <button class="btn btn-outline-third" type="button" @click="addCoupenCode">
+              <button class="btn btn-outline-third" type="button" @click="addCouponCode">
                 套用優惠碼</button>
             </div>
           </div>
@@ -183,19 +182,19 @@
 </template>
 
 <script>
-import mapGetters from 'vuex';
+import { mapGetters } from 'vuex';
 import NavBar from '../components/NavBar.vue';
 import Footer from '../components/Footer.vue';
 // import $ from 'jquery'
 // 掛載錯誤訊息提示元件
-import Alert from '../components/AlerMessage.vue';
+// import Alert from '../components/AlerMessage.vue';
 
 export default {
   name: 'Checkout',
   components: {
     NavBar,
     Footer,
-    Alert,
+    // Alert,
   },
   data() {
     return {
@@ -223,7 +222,7 @@ export default {
       this.$store.dispatch('cartModules/removeCartItem', id);
     },
     // 套用折扣碼
-    addCoupenCode() {
+    addCouponCode() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`;
       this.$store.dispatch('updateLoading', true);
@@ -242,7 +241,9 @@ export default {
             vm.getCart();
             this.$store.dispatch('updateLoading', false);
           } else {
-            vm.$bus.$emit('message:push', response.data.message, 'danger');
+            const { message } = response.data;
+            const status = 'danger';
+            this.$store.dispatch('updateMessage', { message, status });
             this.$store.dispatch('updateLoading', false);
           }
         });
@@ -255,7 +256,7 @@ export default {
       const isValid = vm.$refs.observer.validate();
       const order = vm.form;
       if (!isValid) {
-        vm.$bus.$emit('message:push', '資料不完整', 'danger');
+        // vm.$bus.$emit('message:push', '資料不完整', 'danger');
         this.$store.dispatch('updateLoading', false);
       } else {
         this.$http
@@ -265,8 +266,11 @@ export default {
           .then((response) => {
             if (response.data.success) {
               vm.$router.push(`/pay/${response.data.orderId}`);
+              this.$store.dispatch('updateLoading', false);
             } else {
-              vm.$bus.$emit('message:push', response.data.message, 'danger');
+              const { message } = response.data;
+              const status = 'danger';
+              this.$store.dispatch('updateMessage', { message, status });
               this.$store.dispatch('updateLoading', false);
             }
           });

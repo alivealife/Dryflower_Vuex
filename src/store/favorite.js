@@ -86,5 +86,11 @@ export default {
   getters: {
     favorite: state => state.favorite,
     sliceIndex: state => state.sliceIndex,
+    favoriteQty: (state) => {
+      if (!state.favorite) {
+        return 0;
+      }
+      return state.favorite.length;
+    },
   },
 };

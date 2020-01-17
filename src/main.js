@@ -23,9 +23,8 @@ import * as rules from 'vee-validate/dist/rules';
 import tw from 'vee-validate/dist/locale/zh_TW.json';
 import App from './App.vue';
 import router from './router';
-// event bus
-import './bus';
-// // filter
+
+// filter
 import currencyFilter from './filters/currency';
 import timestampFilter from './filters/timeTransform';
 // Vuex

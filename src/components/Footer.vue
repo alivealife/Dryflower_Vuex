@@ -21,30 +21,11 @@
         </ul>
         <p class="text-center text-main">個人練習作品</p>
         <div class="text-center">
-          <a href="#" class="h4 hide-login" @click.prevent="signinCheck">
+          <router-link href="#" class="h4 hide-login" to="/login">
             <i class="fas fa-user-cog"></i>
-          </a>
+          </router-link>
         </div>
       </div>
     </footer>
   </div>
 </template>
-
-<script>
-export default {
-  methods: {
-    // 驗證有沒有登入，有登入就直接進 Dashboard，沒有就進 Login
-    signinCheck() {
-      const vm = this;
-      const api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
-      this.$http.post(api).then((response) => {
-        if (response.data.success) {
-          vm.$router.push('/admin/products');
-        } else {
-          vm.$router.push('/Login');
-        }
-      });
-    },
-  },
-};
-</script>

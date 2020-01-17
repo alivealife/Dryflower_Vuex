@@ -1,9 +1,5 @@
 <template>
   <div class="text-main">
-    <!-- 錯誤訊息 -->
-    <Alert></Alert>
-    <!-- 讀取效果 -->
-    <loading :active.sync="isLoading"></loading>
     <form class="form-signin" @submit.prevent="signin">
       <img
         class="mb-4"
@@ -40,20 +36,19 @@
 
 <script>
 // 掛載錯誤訊息提示元件
-import Alert from '../components/AlerMessage.vue';
+// import Alert from '../components/AlerMessage.vue';
 
 export default {
   name: 'Login',
-  components: {
-    Alert,
-  },
+  // components: {
+  //   Alert,
+  // },
   data() {
     return {
       user: {
         username: '',
         password: '',
       },
-      isLoading: false,
     };
   },
   methods: {
@@ -62,16 +57,19 @@ export default {
       // 跨域的話要使用 /admin/signin
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       const vm = this;
-      vm.isLoading = true;
+      vm.$store.state.isLoading = true;
       // 根據 API 文件，登入方法為 post
       this.$http.post(api, vm.user).then((response) => {
         // 如果 response.data.success 為 true 就回到首頁
         if (response.data.success) {
           vm.$router.push('/admin/products');
-          vm.isLoading = false;
+          vm.$store.state.isLoading = false;
         } else {
-          vm.$bus.$emit('message:push', response.data.message, 'danger');
-          vm.isLoading = false;
+          // vm.$bus.$emit('message:push', response.data.message, 'danger');
+          const { message } = response.data;
+          const status = 'danger';
+          this.$store.dispatch('updateMessage', { message, status });
+          vm.$store.state.isLoading = false;
         }
       });
     },

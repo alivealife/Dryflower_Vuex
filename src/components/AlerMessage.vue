@@ -20,43 +20,51 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
-  name: 'Navbar',
-  data() {
-    return {
-      messages: [],
-    };
-  },
+  // data() {
+  //   return {
+  //     messages: [],
+  //   };
+  // },
   methods: {
     // 送出訊息至 message 時也會觸發把自己移除的函式
     updateMessage(message, status) {
-      const timestamp = Math.floor(new Date() / 1000);
-      this.messages.push({
-        message,
-        status,
-        timestamp,
-      });
-      this.removeMessageWithTiming(timestamp);
+      // const timestamp = Math.floor(new Date() / 1000);
+      // this.messages.push({
+      //   message,
+      //   status,
+      //   timestamp,
+      // });
+      // this.removeMessageWithTiming(timestamp);
+      this.$store.dispatch('updateLoading', { message, status });
     },
     // 用來按下叉叉後關閉訊息
     removeMessage(num) {
-      this.messages.splice(num, 1);
+      // this.messages.splice(num, 1);
+      this.$store.dispatch('removeMessage', num);
     },
     // 五秒一到就移除自己
     // 只有外部傳入的訊息會自動移除，手動寫死的不會
     removeMessageWithTiming(timestamp) {
-      const vm = this;
-      setTimeout(() => {
-        vm.messages.forEach((item, i) => {
-          if (item.timestamp === timestamp) {
-            vm.messages.splice(i, 1);
-          }
-        });
-      }, 5000);
+    //   const vm = this;
+    //   setTimeout(() => {
+    //     vm.messages.forEach((item, i) => {
+    //       if (item.timestamp === timestamp) {
+    //         vm.messages.splice(i, 1);
+    //       }
+    //     });
+    //   }, 5000);
+    // },
+      this.$store.dispatch('removeMessageWithTiming', timestamp);
     },
   },
+  computed: {
+    ...mapGetters(['messages']),
+  },
   created() {
-    const vm = this;
+    // const vm = this;
 
     // 自定義名稱 'messsage:push'
     // message: 傳入參數
@@ -66,12 +74,13 @@ export default {
     // message 為字串
     // 將 status 預設為 warning(對應到 bootstrap 樣式)
     // 外層用 on 註冊，內層用 emit 觸發
-    vm.$bus.$on('message:push', (message, status = 'warning') => {
-      vm.updateMessage(message, status);
-    });
+    // vm.$bus.$on('message:push', (message, status = 'warning') => {
+    //   vm.updateMessage(message, status);
+    // });
     // vm.$bus.$emit('message:push');
   },
 };
+
 </script>
 
 <style scope>

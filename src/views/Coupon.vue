@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="vld-parent">
-      <loading :active.sync="isLoading"></loading>
-    </div>
     <div class="text-right mt-4">
       <!-- 建立新優惠券所以使用 true 代入 -->
       <button class="btn btn-main" @click="openModal(true)">建立新的優惠券</button>
@@ -179,7 +176,6 @@ export default {
       tempCoupon: {},
       couponLastday: '',
       isNew: false,
-      isLoading: false,
       // 用來儲存時間
       last_date: new Date(),
     };
@@ -200,10 +196,10 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`;
       const vm = this;
       // 將讀取套件設為 true
-      vm.isLoading = true;
+      vm.$store.state.isLoading = true;
       this.$http.get(api).then((response) => {
         // 取得完資料後將讀取套件設為 false
-        vm.isLoading = false;
+        vm.$store.state.isLoading = false;
         // 將優惠券資料取出並儲存
         vm.coupons = response.data.coupons;
         // 取得分頁資料

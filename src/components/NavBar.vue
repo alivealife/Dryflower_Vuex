@@ -16,14 +16,14 @@
         <router-link class="navbar-brand mr-0" href="#" to="/">
           <h1 class="mb-0">
             <img
-              src="../assets/images/Dry Flower-logo/vector/default-monochrome.svg"
+              src="../assets/images/Dry Flower-logo/default_cut.png"
               alt="Dry Flower"
-              width="200px"
+              width="220px"
             />
           </h1>
         </router-link>
         <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item" :class="{'active': pathCheck == '/'}">
               <router-link class="nav-link" href="#" to="/">首頁</router-link>
             </li>

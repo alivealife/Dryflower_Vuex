@@ -54,13 +54,7 @@ Vue.config.productionTip = false;
 
 // 把 Vee-validate 規則中文化
 localize('zh-TW', tw);
-// eslint-disable-next-line guard-for-in
-// for (const rule in rules) {
-//   extend(rule, {
-//     ...rules[rule], // add the rule
-//     message: tw.messages[rule], // 把 message 加進去並中文化
-//   });
-// }
+
 
 new Vue({
   router,

@@ -8,7 +8,6 @@
           <i class="fas fa-shopping-cart fa-lg cart-icon">
             <span class="bg-danger text-white cart-qty">{{cartQuantity}}</span>
           </i>
-          <br />購物車
         </button>
         <div class="cart-menu mb-3 p-2 bg-white">
           <table class="table">
@@ -20,7 +19,14 @@
             <tbody>
               <!-- item.id 具唯一性，所以 key 使用 item.id -->
               <tr v-if="cartItem.carts ==''">
-                <td colspan="4" class="text-danger text-center h3 py-3">購物車是空的喔 :(</td>
+                <td colspan="4" class="text-danger text-center h3 py-3">
+                  購物車是空的喔 :(
+                  <router-link
+                    class="nav-link btn btn-outline-danger mt-2"
+                    href="#"
+                    to="/productlist"
+                  >點我選購→</router-link>
+                </td>
               </tr>
               <tr v-for="(item) in cartItem.carts" :key="item.id" v-else>
                 <td width="30px">
@@ -57,7 +63,7 @@
           </table>
           <button
             class="btn btn-outline-main btn-lg btn-block rounded-pill"
-            :disabled = "cartItem.carts ==''"
+            :disabled="cartItem.carts ==''"
             @click.prevent="checkout"
           >結帳去</button>
         </div>

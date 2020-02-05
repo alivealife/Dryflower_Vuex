@@ -12,7 +12,7 @@
           <i class="fas fa-heart fa-lg favorite-icon">
             <span class="bg-danger text-white favorite-qty">{{ favoriteQty }}</span>
           </i>
-          <br />最愛
+          <br />
         </button>
         <div class="favorite-menu mb-3 p-2 bg-white">
           <table class="table mb-0">
@@ -24,15 +24,16 @@
             <tbody>
               <!-- item.id 具唯一性，所以 key 使用 item.id -->
               <tr v-if="favorite ==''">
-                <td colspan="4" class="text-danger text-center h3 py-3">這裡沒有東西</td>
+                <td colspan="4" class="text-danger text-center h3 py-3">
+                  這裡沒有東西
+                  <router-link class="nav-link btn btn-outline-danger mt-2"
+                  href="#" to="/productlist">
+                  點我選購→</router-link>
+                </td>
               </tr>
               <tr v-for="(item) in favorite" :key="item.id">
                 <td colspan="1" class="px-0">
-                  <button
-                    type="button"
-                    class="btn text-danger"
-                    @click.prevent="removeLove(item)"
-                  >
+                  <button type="button" class="btn text-danger" @click.prevent="removeLove(item)">
                     <i class="fas fa-heart fa-2x"></i>
                   </button>
                 </td>

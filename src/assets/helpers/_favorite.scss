@@ -1,11 +1,11 @@
 .favorite-dropdown {
   position: fixed;
   right: 15px;
-  bottom: 110px;
+  bottom: 100px;
   .btn-favorite {
     border-radius: 50%;
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     .favorite-icon {
       position: relative;
       .favorite-qty {
@@ -34,5 +34,9 @@
 .favorite-dropdown.show {
   .favorite-menu {
     display: block;
+    min-width: 370px;
+    max-height: 400px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 }

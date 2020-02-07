@@ -216,6 +216,11 @@ export default {
     // 刪除購物車內容
     removeCartItem(id) {
       this.$store.dispatch('cartModules/removeCartItem', id);
+      if (!this.$store.dispatch('cartItem')) {
+        setTimeout(() => {
+          this.$router.push('/productlist');
+        }, 1200);
+      }
     },
     // 套用折扣碼
     addCouponCode() {

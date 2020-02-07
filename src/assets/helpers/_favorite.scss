@@ -2,12 +2,19 @@
   position: fixed;
   right: 15px;
   bottom: 100px;
+
+  .favorite-color {
+    background-color: #C06014;
+  }
+
   .btn-favorite {
     border-radius: 50%;
     width: 60px;
     height: 60px;
+
     .favorite-icon {
       position: relative;
+
       .favorite-qty {
         font-size: 14px;
         position: absolute;
@@ -19,6 +26,7 @@
       }
     }
   }
+
   .favorite-menu {
     display: none;
     max-width: 400px;

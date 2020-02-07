@@ -1,0 +1,76 @@
+{
+  "flowerData": [
+    {
+      "detail": "用於擺放家中或辦公室，包含一個小花瓶及乾燥花數朵。",
+      "size": "20", 
+      "material": "尤加利、滿天星、繡球花等(部分材料依季節調整)",
+      "pack": "紙盒",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-LvA-5IZW9IdX0uAOLY8"
+    },
+    {
+      "detail": "適合居家擺飾、生日送禮等。",
+      "size": "28",
+      "material": "向日葵",
+      "pack": "紙盒綁緞帶",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-Lv9zhDqX2bTk4qeW1Yj"
+    },
+    {
+      "detail": "於婚禮時使用。",
+      "size": "26~30",
+      "material": "兔尾草、滿天星、繡球花、棉花、玫瑰等(部分材料依季節調整)",
+      "pack": "紙盒綁緞帶",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-Lv9zNAHjysJDbp3ELO-"
+    },
+    {
+      "detail": "適合居家擺飾、生日送禮等。",
+      "size": "25",
+      "material": "玫瑰(顏色依季節不同，有特殊需求可來信詢問)",
+      "pack": "紙盒",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-Lv9yyUOZQFVyhh7puml"
+    },
+    {
+      "detail": "適合居家擺飾、辦公室裝飾、生日送禮等。",
+      "size": "長寬高各 15",
+      "material": "仙人掌(依季節不同有不同種類，可來信詢問)",
+      "pack": "紙盒",
+      "maintenance": "請放置於陽光充足處。",
+      "id": "-Lv9ynHzR57rtj_B8FrW"
+    },
+    {
+      "detail": "適合居家擺飾、辦公室裝飾、生日送禮等。",
+      "size": "15",
+      "material": "薰衣草(本商品為單枝販售，不做花束造型)",
+      "pack": "紙盒",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-Lv9ugZVUOvDsRG7PzOZ"
+    },
+    {
+      "detail": "適合居家擺飾、生日送禮等。",
+      "size": "20",
+      "material": "紅色玫瑰(本商品為單枝販售，不做花束造型)",
+      "pack": "紙盒",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-LuGzaXjcvJg-9McQwru"
+    },
+    {
+      "detail": "適合居家擺飾、生日送禮等，包含一個專用小花盆。",
+      "size": "15~25",
+      "material": "兔尾草、滿天星、薰衣草等(部分材料依季節調整)",
+      "pack": "紙盒",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-LtTanj_18fU8lEM4iGP"
+    },
+    {
+      "detail": "適合生日送禮。",
+      "size": "28",
+      "material": "兔尾草、滿天星、雛菊等(部分材料依季節調整)",
+      "pack": "紙盒綁緞帶",
+      "maintenance": "避免高溫高濕及陽光直射。",
+      "id": "-LsfKa_6F8mh0AlqXVfc"
+    }
+  ]
+}

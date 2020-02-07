@@ -25,10 +25,16 @@
       top: 50px;
       left: 50px;
     }
+
+  }
+
+  // 調整跑馬燈左右箭頭的寬度
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
   }
 }
 
-;
 
 .hot-sale {
   border-left: 1px solid black;
@@ -107,13 +113,12 @@
 .banner {
   position: relative;
   min-height: 350px;
-  background-image: url();
   background-size: cover;
   background-position: center center;
 
   .banner-text {
     position: absolute;
-    top: 15rem;
+    top: 10rem;
     right: 1rem;
     font-size: 3rem;
 
@@ -138,14 +143,34 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+  transition: all 0.5s;
+
+  // 去除按鈕外框
+  .btn:focus,
+  .btn:active:focus,
+  .btn.active:focus,
+  .btn.focus,
+  .btn:active.focus,
+  .btn.active.focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:hover {
+    transform: scale(2);
+  }
 }
 
 .vertical-text {
   writing-mode: vertical-rl;
 }
 
+.section-bg {
+  background-color: rgb(236, 226, 212);
+}
+
 .section-line-height {
-  line-height: 3;
+  line-height: 2;
 
   @include media-breakpoint-down(md) {
     line-height: 1.5;
@@ -163,6 +188,7 @@
 
 .section-img {
   margin: -20px 0;
+  max-height: 350px;
 
   // 讓圖片在行動模式下消除 margin
   @include media-breakpoint-down(md) {
@@ -215,4 +241,15 @@
   border-radius: 4px;
   border-radius: 4px;
   background: rgb(219, 219, 219);
+}
+
+// 用於將 footer 定位在最下面
+.footer_position{
+  position: relative;
+  min-height: 100%;
+  .footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }

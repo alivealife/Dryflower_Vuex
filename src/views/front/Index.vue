@@ -21,9 +21,14 @@
               src="../../assets/images/camila-cordeiro-736F6KL7l4U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block caption-position text-left">
-              <h5 class="h2">來自我們的真心</h5>
-              <p class="h3">所有的商品都是最高品質</p>
+            <div class="carousel-caption d-none d-md-block caption-position text-left ml-3">
+              <h5 class="h1">來自我們的真心</h5>
+              <p class="h5">讓我們依您的需求，製作出獨一無二的花束吧</p>
+              <router-link
+                href="#"
+                to="/detail/-LsfKa_6F8mh0AlqXVfc"
+                class="btn btn-outline-light rounded-pill"
+              >來去逛逛</router-link>
             </div>
           </div>
           <div class="carousel-item">
@@ -40,9 +45,14 @@
               src="../../assets/images/sharon-mccutcheon-cFufeCC4y8U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block font-weight-bolder">
-              <h5 class="h2">真心獻給您</h5>
-              <p class="h3">點綴人生中最重要的時刻</p>
+            <div class="carousel-caption d-none d-md-block font-weight-bolder pb-0">
+              <h5 class="h1">真心獻給您</h5>
+              <p class="h5">在最重要的時刻來一束玫瑰花吧</p>
+              <router-link
+                href="#"
+                to="/detail/-Lv9yyUOZQFVyhh7puml"
+                class="btn btn-outline-light rounded-pill"
+              >來去逛逛</router-link>
             </div>
           </div>
         </div>
@@ -66,12 +76,10 @@
         </a>
       </div>
     </div>
-    <section class="my-5 bg-sub">
+    <section class="my-5 section-bg">
       <div class="container full-width">
         <div class="row no-gutters">
-          <div
-            class="col-md-6 text-forText d-flex justify-content-end pr-3 mr-md-0 mr-4"
-          >
+          <div class="col-md-6 text-forText d-flex justify-content-end pr-3 mr-md-0 mr-4">
             <div class="vertical-text py-3 section-line-height h6">
               <p>雖然我們不能帶給您永恆的保證，</p>
               <p>但是，</p>
@@ -92,7 +100,7 @@
         </div>
       </div>
     </section>
-    <section class="my-5 bg-sub">
+    <section class="my-5 section-bg">
       <div class="container full-width">
         <div class="row no-gutters">
           <div class="col-md-6 animatedLR">
@@ -121,11 +129,8 @@
         <h3 class="text-main mb-0">
           <i class="fab fa-hotjar"></i> 熱銷商品
         </h3>
-        <router-link
-          href="#"
-          to="/productlist"
-          class="ml-3 text-sub text-decoration-none"
-        >查看所有產品→</router-link>
+        <router-link href="#" to="/productlist" class="ml-3 text-sub text-decoration-none">
+        查看所有產品→</router-link>
       </div>
       <!-- 商品 -->
       <div class="row mt-4">
@@ -151,7 +156,7 @@
                 <!-- 如果同時有原價跟售價就顯示下面兩條 -->
                 <!-- 0、''、nan 都算 false -->
                 <del class="h6 text-secondary" v-if="item.price">原價 {{ item.origin_price }} 元</del>
-                <div class="h5 text-sub" v-if="item.price">現在只要 {{ item.price }} 元</div>
+                <div class="h5 text-sub" v-if="item.price">{{ item.price }} 元</div>
               </div>
             </div>
           </div>

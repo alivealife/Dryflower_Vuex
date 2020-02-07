@@ -4,7 +4,7 @@
       <NavBar />
     </header>
     <div class="container">
-      <div class="banner">
+      <div class="banner" :style="{backgroundImage: 'url(' + bg + ')' }">
         <!-- <img
           src="../../assets/images/artsy-vibes-WieARwnazLc-unsplash.jpg"
           alt
@@ -114,7 +114,7 @@
                           class="h6 text-secondary"
                           v-if="item.price"
                         >原價 {{ item.origin_price }} 元</del>
-                        <div class="h5 text-sub" v-if="item.price">現在只要 {{ item.price }} 元</div>
+                        <div class="h5 text-sub" v-if="item.price"> {{ item.price }} 元</div>
                       </div>
                     </div>
                   </div>
@@ -418,6 +418,7 @@ import NavBar from '../../components/NavBar.vue';
 import Footer from '../../components/Footer.vue';
 import ShoppingCart from '../../components/ShoppingCart.vue';
 import FavoriteList from '../../components/FavoriteList.vue';
+import BG from '../../assets/images/artsy-vibes-WieARwnazLc-unsplash.jpg';
 
 export default {
   name: 'Productlist',
@@ -430,6 +431,7 @@ export default {
   data() {
     return {
       filterText: '',
+      bg: BG,
     };
   },
   methods: {

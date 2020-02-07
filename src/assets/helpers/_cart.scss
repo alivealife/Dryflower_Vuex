@@ -4,6 +4,10 @@
   bottom: 25px;
   z-index: 99;
 
+  .cart-color {
+    background-color: #CDA34F;
+  }
+
   .btn-cart {
     border-radius: 50px;
     height: 60px;
@@ -44,4 +48,3 @@
     overflow-y: auto;
   }
 }
-

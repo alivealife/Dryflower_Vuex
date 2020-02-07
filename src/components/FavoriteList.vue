@@ -5,7 +5,7 @@
     <div class="favorite-dropdown">
       <form>
         <button
-          class="btn btn-secondary btn-favorite"
+          class="btn btn-favorite favorite-color"
           type="button"
           @click.prevent="openFavoriteList(1)"
         >

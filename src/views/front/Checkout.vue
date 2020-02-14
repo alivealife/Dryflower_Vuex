@@ -43,7 +43,7 @@
                   <img
                     :src="item.product.imageUrl"
                     style="height: 40px; width: 38px"
-                    class="img-thumbnail"
+                    class="img-thumbnail d-none d-md-inline"
                   />
                   {{ item.product.title }}
                   <div class="text-success" v-if="item.coupon">已套用優惠券</div>

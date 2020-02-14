@@ -21,7 +21,7 @@
               src="../../assets/images/camila-cordeiro-736F6KL7l4U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block caption-position text-left ml-3">
+            <div class="carousel-caption font-weight-bolder rounded mobile-bg">
               <h5 class="h1">來自我們的真心</h5>
               <p class="h5">讓我們依您的需求，製作出獨一無二的花束吧</p>
               <router-link
@@ -36,8 +36,14 @@
               src="../../assets/images/kseniya-petukhova-qJy61YwqQB8-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block text-white-50 font-weight-bold">
+            <div class="carousel-caption font-weight-bold rounded mobile-bg">
               <h5 class="h1">Longer but not forever</h5>
+              <p class="h5">雖然不是永遠，但是我們能承諾很久</p>
+              <router-link
+                href="#"
+                to="/detail/-LuGzaXjcvJg-9McQwru"
+                class="btn btn-outline-light rounded-pill"
+              >來去逛逛</router-link>
             </div>
           </div>
           <div class="carousel-item">
@@ -45,7 +51,7 @@
               src="../../assets/images/sharon-mccutcheon-cFufeCC4y8U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block font-weight-bolder pb-0">
+            <div class="carousel-caption font-weight-bolder rounded mobile-bg">
               <h5 class="h1">真心獻給您</h5>
               <p class="h5">在最重要的時刻來一束玫瑰花吧</p>
               <router-link
@@ -76,10 +82,10 @@
         </a>
       </div>
     </div>
-    <section class="my-5 section-bg">
+    <section class="my-md-5 mt-3 section-bg">
       <div class="container full-width">
-        <div class="row no-gutters">
-          <div class="col-md-6 text-forText d-flex justify-content-end pr-3 mr-md-0 mr-4">
+        <div class="row no-gutters flex-column-reverse flex-md-row">
+          <div class="col-md-6 text-forText d-flex justify-content-end pr-3 mr-md-0">
             <div class="vertical-text py-3 section-line-height h6">
               <p>雖然我們不能帶給您永恆的保證，</p>
               <p>但是，</p>
@@ -88,7 +94,7 @@
               <p>讓我們改用乾燥花，</p>
               <p>紀念美好的一切。</p>
             </div>
-            <h3 class="vertical-text section-title h2">為什麼選擇乾燥花—</h3>
+            <h3 class="vertical-text section-title h2 mr-4">為什麼選擇乾燥花—</h3>
           </div>
           <div class="col-md-6 animatedY">
             <img
@@ -100,7 +106,7 @@
         </div>
       </div>
     </section>
-    <section class="my-5 section-bg">
+    <section class="my-md-5 mb-3 section-bg">
       <div class="container full-width">
         <div class="row no-gutters">
           <div class="col-md-6 animatedLR">
@@ -125,7 +131,7 @@
       </div>
     </section>
     <div class="container">
-      <div class="hot-sale mt-4 d-flex align-items-end">
+      <div class="hot-sale d-flex align-items-end">
         <h3 class="text-main mb-0">
           <i class="fab fa-hotjar"></i> 熱銷商品
         </h3>
@@ -274,9 +280,7 @@ export default {
         $('.animatedLR').each(function animatedLR() {
           // 宣告變數 thisPos = animated 的位置
           const thisPos = $(this).offset().top;
-          // console.log('animated', thisPos);
           if (thisPos <= scrollPos + windowHeight / 1.2) {
-            // console.log('animated', thisPos);
             $(this).addClass('fadeInLR');
           }
         });

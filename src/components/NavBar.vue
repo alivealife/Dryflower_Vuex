@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white flex-row-reverse flex-md-row">
         <button
           class="navbar-toggler"
           type="button"

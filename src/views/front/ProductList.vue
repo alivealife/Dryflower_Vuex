@@ -5,11 +5,6 @@
     </header>
     <div class="container">
       <div class="banner" :style="{backgroundImage: 'url(' + bg + ')' }">
-        <!-- <img
-          src="../../assets/images/artsy-vibes-WieARwnazLc-unsplash.jpg"
-          alt
-          class="img-fluid"
-        /> -->
         <h5 class="text-white banner-text font-weight-bolder">總能找到最適合您的</h5>
       </div>
       <div class="row mt-3">

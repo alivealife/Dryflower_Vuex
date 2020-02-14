@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import Home from '../views/Home.vue'
 import Index from '../views/front/Index.vue';
 import Detail from '../views/front/Detail.vue';
 import Login from '../views/front/Login.vue';
@@ -16,7 +15,6 @@ import Contact from '../views/front/Contact.vue';
 Vue.use(VueRouter);
 
 const routes = [
-  // {
   {
     path: '*',
     redirect: '/',

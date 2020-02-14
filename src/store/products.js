@@ -45,7 +45,7 @@ export default {
         if (item.is_enabled === 1) {
           state.products.push(item);
         }
-      });// eslint-disable-line
+      });
     },
     PRODUCT(state, payload) {
       state.product = payload;

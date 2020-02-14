@@ -7,8 +7,8 @@
       <div class="row justify-content-center">
         <div class="col-md-10">
           <div class="row">
-            <div class="col-md-6 text-center">
-              <img :src="product.imageUrl" class="img-detail img-thumbnail" alt />
+            <div class="col-md-6 img-thumbnail detail-bg mb-3"
+            :style="{backgroundImage: 'url(' + product.imageUrl + ')' }">
             </div>
             <div class="col-md-6">
               <div class="d-flex align-items-center">
@@ -54,8 +54,8 @@
       </div>
     </div>
     <div class="container">
-      <div class="row my-3">
-        <div class="col-md-6 text-main">
+      <div class="row my-4">
+        <div class="col-md-6 text-main mb-4">
           <h3>
             <i class="fas fa-location-arrow"></i> 商品資訊
           </h3>
@@ -82,9 +82,11 @@
           </ul>
         </div>
       </div>
-      <div class="row">
-        <h3 class="text-main">也許您也喜歡</h3>
-        <div class="row mt-4 w-100">
+      <div class="row mt-4">
+        <div class="col-12">
+          <h3 class="text-main">也許您也喜歡</h3>
+        </div>
+
           <div class="col-md-4 mb-4 card-position" v-for="item in randomProducts" :key="item.id">
             <div class="card border-0 shadow-sm" @click.prevent="getProductID(item.id)">
               <a href="#">
@@ -101,7 +103,6 @@
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
     <Footer />
@@ -170,7 +171,6 @@ export default {
     // 抓取目前商品的資料
     flowerCheck() {
       const vm = this;
-      // console.log(this.flowerData.flowerData[0]);
       return vm.flowerData.flowerData.filter(item => item.id === vm.productId);
     },
   },

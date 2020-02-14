@@ -273,7 +273,6 @@ export default {
         vm.products = response.data.products;
         // 取得分頁資料
         vm.pagination = response.data.pagination;
-        // console.log(response)
       });
     },
     // 開啟 Modal 判斷用，判斷是新產品還是原本的產品
@@ -335,7 +334,6 @@ export default {
       });
     },
     uploadFile() {
-      // console.log(this);
       // 取出檔案
       const uploadedFile = this.$refs.files.files[0];
       // 清除上傳後的檔案名稱
@@ -357,12 +355,10 @@ export default {
           },
         })
         .then((response) => {
-          // console.log(response.data);
           // 當上傳結束就把讀取圖案隱藏起來
           vm.status.fileUploading = false;
           // 如果上傳成功就把圖的網址存起來
           if (response.data.success) {
-            // vm.tempProduct.imageUrl = response.data.imageUr;
             // 因為一開始的 data 中沒有定義 imageUrl，所以要用 set 的方式讓他雙向綁定強制寫入
             vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl);
             // 將檔案名稱清空

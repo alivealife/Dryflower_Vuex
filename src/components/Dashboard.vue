@@ -16,19 +16,15 @@
 // 將拆解後的 navbar 跟 sidebar 載入
 import Sidebar from './Sidebar.vue';
 import Navbar from './DashboardNavBar.vue';
-// 掛載錯誤訊息提示元件
-// import Alert from './AlerMessage.vue';
 
 export default {
   components: {
     Sidebar,
     Navbar,
-    // 將元件放入
-    // Alert,
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/_dashboard.scss";
+@import "../assets/scss/helpers/_dashboard.scss";
 </style>

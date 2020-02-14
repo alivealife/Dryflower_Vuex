@@ -10,7 +10,8 @@
           @click.prevent="openFavoriteList(1)"
         >
           <i class="fas fa-heart fa-lg favorite-icon">
-            <span class="bg-danger text-white favorite-qty">{{ favoriteQty }}</span>
+            <span class="bg-danger text-white favorite-qty" v-if="favoriteQty > 0">
+              {{ favoriteQty }}</span>
           </i>
           <br />
         </button>

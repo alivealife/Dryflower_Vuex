@@ -14,7 +14,7 @@
           <span aria-hidden="true">&laquo;</span>
         </a>
       </li>
-      <!-- pagination.current_page == page 時就機 active 標籤 -->
+      <!-- pagination.current_page == page 時就加入 active 標籤 -->
       <li
         class="page-item"
         v-for="page in paginationData.total_pages"

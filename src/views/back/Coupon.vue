@@ -256,10 +256,8 @@ export default {
         if (response.data.success) {
           $('#couponModal').modal('hide');
           vm.getCoupon();
-          // console.log(document.getElementById("last_date").value);
         } else {
           $('#couponModal').modal('hide');
-          // alert("新增失敗");
         }
       });
     },
@@ -273,7 +271,6 @@ export default {
           vm.getCoupon();
         } else {
           $('#delcouponModal').modal('hide');
-          // alert("刪除錯誤，找不到優惠券");
         }
       });
     },

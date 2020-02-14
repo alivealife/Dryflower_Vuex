@@ -6,7 +6,8 @@
       <form>
         <button class="btn btn-cart cart-color" type="button" @click.prevent="getCart(1)">
           <i class="fas fa-shopping-cart fa-lg cart-icon">
-            <span class="bg-danger text-white cart-qty">{{cartQuantity}}</span>
+            <span class="bg-danger text-white cart-qty" v-if="cartQuantity > 0">
+              {{cartQuantity}}</span>
           </i>
         </button>
         <div class="cart-menu mb-3 p-2 bg-white">
@@ -47,7 +48,7 @@
                 <td width="80">{{ item.qty }} / {{ item.product.unit }}</td>
                 <td class="text-right">{{ item.total | currency }}</td>
               </tr>
-              <tr>
+              <tr  v-if="cartQuantity > 0">
                 <td colspan="3" class="text-right">總計</td>
                 <td colspan="1" class="text-right">{{ cartItem.total | currency }}</td>
               </tr>
@@ -64,7 +65,7 @@
           <button
             class="btn btn-outline-main btn-lg btn-block rounded-pill"
             :disabled="cartItem.carts ==''"
-            @click.prevent="checkout"
+            @click.prevent="checkout"  v-if="cartQuantity > 0"
           >結帳去</button>
         </div>
       </form>

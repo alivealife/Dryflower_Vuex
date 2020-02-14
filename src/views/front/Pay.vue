@@ -6,7 +6,7 @@
         <NavBar />
       </header>
       <div>
-        <ol class="stepBar pl-0">
+        <ol class="stepBar p-0">
           <li class="visited">
             <span>1</span>
             <br />輸入資料

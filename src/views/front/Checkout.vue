@@ -4,7 +4,7 @@
       <NavBar />
     </header>
     <div>
-      <ol class="stepBar">
+      <ol class="stepBar p-0">
         <li class="visited">
           <span>1</span>
           <br />輸入資料
@@ -43,7 +43,7 @@
                   <img
                     :src="item.product.imageUrl"
                     style="height: 40px; width: 38px"
-                    class="img-thumbnail d-none d-md-inline"
+                    class="img-thumbnail d-none d-lg-inline"
                   />
                   {{ item.product.title }}
                   <div class="text-success" v-if="item.coupon">已套用優惠券</div>

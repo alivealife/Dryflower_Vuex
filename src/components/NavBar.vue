@@ -18,7 +18,7 @@
             <img
               src="../assets/images/Dry Flower-logo/default_cut.png"
               alt="Dry Flower"
-              width="220px"
+              class="logo-size"
             />
           </h1>
         </router-link>

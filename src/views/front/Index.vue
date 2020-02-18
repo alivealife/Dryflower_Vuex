@@ -21,9 +21,9 @@
               src="../../assets/images/camila-cordeiro-736F6KL7l4U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption font-weight-bolder rounded mobile-bg">
-              <h5 class="h1">來自我們的真心</h5>
-              <p class="h5">讓我們依您的需求，製作出獨一無二的花束吧</p>
+            <div class="carousel-caption font-weight-bolder rounded mobile-bg p-3">
+              <h5 class="carousel-font-title">來自我們的真心</h5>
+              <p class="carousel-font-content">讓我們依您的需求，製作出獨一無二的花束吧</p>
               <router-link
                 href="#"
                 to="/detail/-LsfKa_6F8mh0AlqXVfc"
@@ -36,9 +36,9 @@
               src="../../assets/images/kseniya-petukhova-qJy61YwqQB8-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption font-weight-bold rounded mobile-bg">
-              <h5 class="h1">Longer but not forever</h5>
-              <p class="h5">雖然不是永遠，但是我們能承諾很久</p>
+            <div class="carousel-caption font-weight-bold rounded mobile-bg p-3">
+              <h5 class="carousel-font-title">Longer but not forever</h5>
+              <p class="carousel-font-content">雖然不是永遠，但是我們能承諾很久</p>
               <router-link
                 href="#"
                 to="/detail/-LuGzaXjcvJg-9McQwru"
@@ -51,9 +51,9 @@
               src="../../assets/images/sharon-mccutcheon-cFufeCC4y8U-unsplash.jpg"
               class="d-block w-100"
             />
-            <div class="carousel-caption font-weight-bolder rounded mobile-bg">
-              <h5 class="h1">真心獻給您</h5>
-              <p class="h5">在最重要的時刻來一束玫瑰花吧</p>
+            <div class="carousel-caption font-weight-bolder rounded mobile-bg p-3">
+              <h5 class="carousel-font-title">真心獻給您</h5>
+              <p class="carousel-font-content">在最重要的時刻來一束玫瑰花吧</p>
               <router-link
                 href="#"
                 to="/detail/-Lv9yyUOZQFVyhh7puml"

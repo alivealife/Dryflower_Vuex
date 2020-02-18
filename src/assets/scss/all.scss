@@ -11,6 +11,13 @@
 // 載入為愛列表
 @import "./helpers/favorite";
 
+.logo-size {
+  width: 220px;  
+  @include media-breakpoint-down(md) {
+    width: 170px;
+  }
+}
+
 .carousel {
   .carousel-item {
     max-height: 500px;
@@ -31,6 +38,20 @@
 
   .mobile-bg {
     background-color: rgba(0, 0, 0, .5);
+  }
+
+  .carousel-font-title {
+    font-size: 2.5rem;
+    @include media-breakpoint-down(md) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .carousel-font-content {
+    font-size: 1rem;
+    @include media-breakpoint-down(md) {
+      font-size: 0.8rem;
+    }
   }
 }
 

@@ -257,7 +257,6 @@ export default {
       },
     };
   },
-
   methods: {
     // 取得產品資料，令 page 預設為 1
     getProducts(page = 1) {

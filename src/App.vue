@@ -15,16 +15,10 @@ export default {
   components: {
     Alert,
   },
-  methods: {
-
-  },
   computed: {
     isLoading() {
       return this.$store.state.isLoading;
     },
-  },
-  created() {
-
   },
 };
 </script>

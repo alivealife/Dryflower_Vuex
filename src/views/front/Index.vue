@@ -27,7 +27,7 @@
               <router-link
                 href="#"
                 to="/detail/-LsfKa_6F8mh0AlqXVfc"
-                class="btn btn-outline-light rounded-pill"
+                class="btn btn-outline-light rounded-pill px-4 mt-2"
               >來去逛逛</router-link>
             </div>
           </div>
@@ -42,7 +42,7 @@
               <router-link
                 href="#"
                 to="/detail/-LuGzaXjcvJg-9McQwru"
-                class="btn btn-outline-light rounded-pill"
+                class="btn btn-outline-light rounded-pill px-4 mt-2"
               >來去逛逛</router-link>
             </div>
           </div>
@@ -57,7 +57,7 @@
               <router-link
                 href="#"
                 to="/detail/-Lv9yyUOZQFVyhh7puml"
-                class="btn btn-outline-light rounded-pill"
+                class="btn btn-outline-light rounded-pill px-4 mt-2"
               >來去逛逛</router-link>
             </div>
           </div>
